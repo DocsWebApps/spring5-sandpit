@@ -2,6 +2,7 @@ package com.docswebapps.spring5sandpit;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
@@ -13,14 +14,14 @@ import javax.servlet.ServletRegistration;
 
 @Configuration
 @EnableWebMvc
+@EnableJpaRepositories
 @ComponentScan(basePackages = {"com.docswebapps.spring5sandpit"})
-public class SpringAppConfig implements WebApplicationInitializer {
-
+public class SpringWebAppConfig implements WebApplicationInitializer {
     @Override
     public void onStartup(ServletContext container) {
         // Create the 'root' Spring application context
         AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
-        rootContext.register(SpringAppConfig.class);
+        rootContext.register(SpringWebAppConfig.class);
 
         // Manage the lifecycle of the root application context
         container.addListener(new ContextLoaderListener(rootContext));

@@ -24,8 +24,8 @@ public class PersistenceJPAConfig {
         LocalContainerEntityManagerFactoryBean em
                 = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        // You need at least one entity set up under "com.docswebapps.spring5sandpit.domain"
-        em.setPackagesToScan("com.docswebapps.spring5sandpit.domain");
+        // You need at least one entity set up under "com.docswebapps.spring5sandpit"
+        em.setPackagesToScan("com.docswebapps.spring5sandpit");
 
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
@@ -70,7 +70,7 @@ public class PersistenceJPAConfig {
 
     Properties additionalProperties() {
         Properties properties = new Properties();
-        properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
+        properties.setProperty("hibernate.hbm2ddl.auto", "update");
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
         return properties;
     }
