@@ -39,9 +39,9 @@ public class PersistenceJPAConfig {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
 //        dataSource.setDriverClassName("com.mysql.jdbc.Driver"); // deprecated
-        dataSource.setUrl("jdbc:mysql://10.202.148.230:3306/devdb");
-        dataSource.setUsername( "devdb_admin" );
-        dataSource.setPassword( "devdb_admin" );
+        dataSource.setUrl("jdbc:mysql://192.168.0.103:9090/devdb");
+        dataSource.setUsername( "dev_admin" );
+        dataSource.setPassword( "dev_admin" );
         return dataSource;
     }
 
